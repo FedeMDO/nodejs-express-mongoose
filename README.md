@@ -1,7 +1,7 @@
 # nodejs-express-mongoose
 
 # Install dependencies
-´´´npm i´´´
+`npm install`
 
 # Start server
-´´´npm start´´´
+`npm start`
