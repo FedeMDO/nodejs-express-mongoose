@@ -1,7 +1,15 @@
 # nodejs-express-mongoose
 
-# Install dependencies
-`npm install`
+You need to install docker‼️
 
-# Start server
+## Install dependencies
+
+`npm start`
+
+## Run Database
+
+`docker-compose up`
+
+## Start server
+
 `npm start`

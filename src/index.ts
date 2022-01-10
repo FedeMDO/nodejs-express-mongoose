@@ -1,13 +1,20 @@
-import express, { Application, Request, Response, NextFunction } from 'express';
+import express, { Application } from 'express';
+import mongoose from 'mongoose';
+import config from './config';
 
-// Boot express
-const app: Application = express();
-const port = 5000;
+// Routes
+import greetingsRoute from './routes/greetings';
 
-// Application routing
-app.use('/', (req: Request, res: Response, next: NextFunction) => {
-  res.status(200).send({ data: 'Hello World' });
-});
+(async () => {
+  await mongoose.connect(config.DB);
 
-// Start server
-app.listen(port, () => console.log(`Server is listening on port ${port}!`));
+  // Boot express
+  const app: Application = express();
+  app.use(express.json());
+
+  // Bind routes
+  app.use('/greetings', greetingsRoute);
+
+  // Start server
+  app.listen(config.PORT, () => console.log(`Server is listening on port ${config.PORT}!`));
+})();
